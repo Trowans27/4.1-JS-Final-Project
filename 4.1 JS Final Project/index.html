@@ -1,0 +1,88 @@
+<!doctype html> 
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Search (OMDb)</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="app.js"></script>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <div class="header__top">
+          <h1 class="logo">MovieWatch</h1>
+
+          <div class="sort">
+            <label class="sort__label" for="sortSelect">Sort:</label>
+            <select id="sortSelect" class="sort__select">
+              <option value="az">Alphabetical (A → Z)</option>
+              <option value="za">Alphabetical (Z → A)</option>
+              <option value="newest">Newest → Oldest</option>
+              <option value="oldest">Oldest → Newest</option>
+            </select>
+          </div>
+        </div>
+
+        <form id="searchForm" class="search" autocomplete="off">
+          <input
+            id="searchInput"
+            class="search__input"
+            type="text"
+            placeholder="Search movies (e.g., Batman, Interstellar...)"
+            minlength="1"
+            required
+          />
+          <button class="search__btn" type="submit">Search</button>
+        </form>
+
+        <div class="toolbar">
+          <p id="statusText" class="subtext">Search to see results.</p>
+
+          <div class="pager">
+            <button id="prevBtn" class="pager__btn" type="button" disabled>
+              ← Prev
+            </button>
+            <span id="pageText" class="pager__text">Page 1</span>
+            <button id="nextBtn" class="pager__btn" type="button" disabled>
+              Next →
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="container">
+        <section class="grid" id="movieGrid" aria-label="Movie results">
+          <!-- Results render here -->
+        </section>
+      </div>
+    </main>
+
+    <!-- Modal -->
+    <div id="modalOverlay" class="modal-overlay" aria-hidden="true">
+      <div class="modal" role="dialog" aria-modal="true" aria-label="Movie details">
+        <button id="modalClose" class="modal__close" aria-label="Close details">
+          ✕
+        </button>
+
+        <div id="modalContent" class="modal__content">
+          <!-- Details render here -->
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <p class="footer__text">© <span id="year"></span> MovieWatch — OMDb API Demo</p>
+        <div class="footer__links">
+          <a class="footer__link" href="#" aria-label="Privacy">Privacy</a>
+          <a class="footer__link" href="#" aria-label="Contact">Contact</a>
+          <a class="footer__link" href="#" aria-label="GitHub">GitHub</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
